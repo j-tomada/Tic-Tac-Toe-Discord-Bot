@@ -83,4 +83,4 @@ async def info(ctx):
 Reference Board for positions
 https://i.imgur.com/xyiYO8O.png""")
 
-client.run("Nzg5Mzk5MDA0MDkzNzQzMTQ0.X9xfHA.cAnBs5eGQ1cUZFSeA_7FZEEqA4U")
+client.run("")
