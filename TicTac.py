@@ -1,19 +1,20 @@
+from asyncio import windows_events
 from typing import Sized
 
 
-board = ["| s |", "| a |", "| x |",
-         "| s |", "| x |", "| o |",
-         "| x |", "| s |", "| s |"]
+board = ["|   |", "|   |", "|   |",
+         "|   |", "|   |", "|   |",
+         "|   |", "|   |", "|   |"]
 
-playsCount = 3
+playsCount = 0
 
 ##Returns a string which displays the board in a 3 x 3 matrix
 def DisplayBoard():
     output = ""
     count = 0
 
-    for x in range(len(board)):
-        output = output + board[x]
+    for x in board:
+        output = output + x +" "
         count = count + 1
         
         if count >= 3:
@@ -26,6 +27,7 @@ def DisplayBoard():
         ##returns true if spot is empty
         ##returns false if spot is filled
 def Place(index, symbol):
+    global playsCount
 
     if (board[index] == "|   |"):
         board[index] = "| " +symbol +" |"
@@ -82,9 +84,17 @@ def WinCon():
                 return True
 
     return False
-    
-def main():
-    print(DisplayBoard())
-    print(WinCon())
 
-main()
+def reset():
+    global board
+    global playsCount
+
+    for x in range(len(board)):
+        board[x] = "|   |"
+    playsCount = 0
+
+def tieGame():
+    if (playsCount >= 9 and WinCon == False):
+        return True
+    else:
+        return False
