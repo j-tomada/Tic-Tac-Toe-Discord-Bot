@@ -7,6 +7,7 @@ board = ["| s |", "| a |", "| x |",
 
 playsCount = 3
 
+##Returns a string which displays the board in a 3 x 3 matrix
 def DisplayBoard():
     output = ""
     count = 0
@@ -21,6 +22,9 @@ def DisplayBoard():
 
     return output
 
+##Places the symbol on the board
+        ##returns true if spot is empty
+        ##returns false if spot is filled
 def Place(index, symbol):
 
     if (board[index] == "|   |"):
@@ -30,6 +34,7 @@ def Place(index, symbol):
     else:
         return False
 
+##Checks for win conditions
 def WinCon():
     condition = False
     
