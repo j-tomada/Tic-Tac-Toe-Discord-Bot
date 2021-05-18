@@ -1,6 +1,9 @@
 array = []
 
 def newList(arr):
+    global array
+    array = []
+
     for i in arr:
         array.append(i)
 

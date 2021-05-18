@@ -38,7 +38,6 @@ def Place(index, symbol):
 
 ##Checks for win conditions
 def WinCon():
-    condition = False
     
     if (playsCount < 3):
         return False
@@ -48,7 +47,7 @@ def WinCon():
     #Checking for horizontal wins
     for i in range(0, 6, 3):
         for j in range(i, i + 2):
-            if (board[j] != board[j + 1]):
+            if (board[j] != board[j + 1] or board[j] == "|   |"):
                 break
 
             if (j >= i + 1):
@@ -57,7 +56,7 @@ def WinCon():
     #Checking for vertical wins
     for i in range(3):
         for j in range(i, i + 6, 3):
-            if (board[j] != board[j + 3]):
+            if (board[j] != board[j + 3] or board[j] == "|   |"):
                 break
 
             if (j >= i + 3):
@@ -71,13 +70,13 @@ def WinCon():
 
     for i in range (2):
 
-        if (i >= 1):
+        if (i == 1):
             startingPoint = 2
             endPoint = 6
             count = 2
 
         for j in range(startingPoint, endPoint, count):
-            if (board[j] != board[j + count]):
+            if (board[j] != board[j + count] or board[j] == "|   |"):
                 break
 
             if (j >= startingPoint + count):
